@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bankdb
+    username: bankuser
+    password: ${BANK_DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+bank:
+  aws:
+    region: us-west-2
+    account-id: ${AWS_ACCOUNT_ID}
+    withdrawal-topic-arn: arn:aws:sns:${bank.aws.region}:${bank.aws.account-id}:withdrawal-events
