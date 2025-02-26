@@ -35,6 +35,6 @@ public class BankAccountDto {
 
         balance = balance.subtract(amount);
         updatedAt = LocalDateTime.now();
-        return WithdrawalResult.successful(amount);
+        return WithdrawalResult.successful(amount, balance);
     }
 }

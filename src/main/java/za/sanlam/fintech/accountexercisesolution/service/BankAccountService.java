@@ -1,10 +1,11 @@
 package za.sanlam.fintech.accountexercisesolution.service;
 
 import za.sanlam.fintech.accountexercisesolution.domain.WithdrawalResult;
-import za.sanlam.fintech.accountexercisesolution.dtos.request.WithdrawalRequest;
+
+import java.math.BigDecimal;
 
 public interface BankAccountService {
 
-    WithdrawalResult withdraw(WithdrawalRequest withdrawalRequest);
+    WithdrawalResult withdraw(Long accountId, BigDecimal amount);
 }
 

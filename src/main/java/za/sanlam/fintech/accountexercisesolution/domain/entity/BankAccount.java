@@ -11,5 +11,5 @@ public class BankAccount {
     @Id
     private Long id;
 
-    //todo: add the necessary fields to the BankAccount entity
+    //todo: add the necessary fields to the BankAccount entity including balance and updatedAt
 }
