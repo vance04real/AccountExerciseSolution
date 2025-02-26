@@ -1,7 +1,12 @@
 package za.sanlam.fintech.accountexercisesolution.controller;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import za.sanlam.fintech.accountexercisesolution.dtos.request.WithdrawalRequest;
+import za.sanlam.fintech.accountexercisesolution.dtos.response.WithdrawalResponse;
 import za.sanlam.fintech.accountexercisesolution.service.BankAccountService;
 
 @RestController
@@ -12,5 +17,10 @@ public class BankAccountController {
 
     public BankAccountController(BankAccountService bankAccountService) {
         this.bankAccountService = bankAccountService;
+    }
+
+    @PostMapping("/account/withdraw")
+    public ResponseEntity<WithdrawalResponse> withdraw(@RequestBody WithdrawalRequest withdrawalRequest) {
+        return ResponseEntity.ok(bankAccountService.withdraw(withdrawalRequest));
     }
 }
